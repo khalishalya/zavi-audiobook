@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktivitas Zavi</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="activity-page">
+
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Kembali
+    </a>
+
+    <h1>Aktivitas Seru 🎨</h1>
+    <p class="subtitle-text">Pilih aktivitas di bawah dan download PDF untuk dimainkan bersama Ayah dan Bunda.</p>
+
+    <!-- ACTIVITY CARDS -->
+    <div class="activity-grid">
+
+        <!-- CARD 1: MEWARNAI ZAVI -->
+        <div class="activity-card">
+            <img src="assets/images/coloring introduce bersama yg bener.png" alt="Mewarnai Zavi">
+            <div class="activity-content">
+                <h2>Mewarnai Zavi</h2>
+                <p class="card-text">
+                    Yuk mewarnai karakter Zavi di rumah bersama Ayah dan Bunda.
+                </p>
+                <button class="activity-btn" onclick="openPdfModal('assets/pdf/mewarnai-zavi.pdf', 'Mewarnai Zavi')">
+                    <i class="fas fa-download"></i> Lihat & Download
+                </button>
+            </div>
+        </div>
+
+        <!-- CARD 2: PDF 1 -->
+        <div class="activity-card">
+            <img src="assets/images/coloring introduce bersama yg bener.png" alt="Aktivitas 1">
+            <div class="activity-content">
+                <h2>Aktivitas 1</h2>
+                <p class="card-text">
+                    Aktivitas seru untuk mengasah kreativitas dan imajinasi si kecil.
+                </p>
+                <button class="activity-btn" onclick="openPdfModal('assets/pdf/1.pdf', 'Aktivitas 1')">
+                    <i class="fas fa-download"></i> Lihat & Download
+                </button>
+            </div>
+        </div>
+
+        <!-- CARD 3: PDF 2 -->
+        <div class="activity-card">
+            <img src="assets/images/coloring introduce bersama yg bener.png" alt="Aktivitas 2">
+            <div class="activity-content">
+                <h2>Aktivitas 2</h2>
+                <p class="card-text">
+                    Aktivitas menarik untuk melatih kemampuan berpikir dan motoric anak.
+                </p>
+                <button class="activity-btn" onclick="openPdfModal('assets/pdf/2.pdf', 'Aktivitas 2')">
+                    <i class="fas fa-download"></i> Lihat & Download
+                </button>
+            </div>
+        </div>
+
+        <!-- CARD 4: PDF 4 -->
+        <div class="activity-card">
+            <img src="assets/images/coloring introduce bersama yg bener.png" alt="Aktivitas 3">
+            <div class="activity-content">
+                <h2>Aktivitas 3</h2>
+                <p class="card-text">
+                    Aktivitas edukatif yang menyenangkan untuk dimainkan bersama keluarga.
+                </p>
+                <button class="activity-btn" onclick="openPdfModal('assets/pdf/4.pdf', 'Aktivitas 3')">
+                    <i class="fas fa-download"></i> Lihat & Download
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PDF MODAL PREVIEW -->
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">PDF Preview</h2>
+            <button class="modal-close" onclick="closePdfModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <iframe id="pdfIframe" src="" class="pdf-preview"></iframe>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-modal-secondary" onclick="closePdfModal()">
+                <i class="fas fa-times"></i> Tutup
+            </button>
+            <a id="downloadLink" href="" download class="btn-modal-primary">
+                <i class="fas fa-download"></i> Download PDF
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
