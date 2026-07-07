@@ -1,0 +1,355 @@
+
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audiobook Zavi</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+      <div class="bg-dark p-4">
+        <h5 class="text-body-emphasis h4">Collapsed content</h5>
+        <span class="text-body-secondary"
+          >Toggleable via the navbar brand.</span>
+      </div> -->
+    
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Home Page
+      <div class="card_1" style="width: 18rem">
+        <img src="" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Mewarnai Zavi</h5>
+          <p class="card-text">
+            Yuk kita mewarnai karakter zavi di rumah. Ayah dan Bunda bisa
+            download PDF ini untuk diprint sebagai tambahan aktifitas si kecil.
+          </p>
+          <br />
+          <a href="#" class="btn btn-primary">Download PDF</a>
+        </div>
+      </div>
+      <br />
+      <div class="card_2" style="width: 18rem">
+        <img src="" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Puzzel Perasaan</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card’s content.
+          </p> -->
+          <!-- <br />
+          <a href="#" class="btn btn-primary">Download PDF</a>
+        </div>
+      </div>
+      <br />
+      <div class="card_3" style="width: 18rem">
+        <img src="" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Stiker Reward</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card’s content.
+          </p>
+          <br />
+          <a href="#" class="btn btn-primary">Download PDF</a>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br /> -->
+      <!-- Landing Page -->
+      <section id="landing" class="screen active">
+        <div class="book-cover">
+          <img src="assets/images/ka ayepsss.png" alt="Cover Buku" />
+        </div>
+        <h1>Zavi Tak Takut Lagi</h1>
+        <p class="subtitle">Cerita interaktif untuk si kecil</p>
+
+        <div class="menu-buttons">
+          <button class="btn btn-primary" onclick="showScreen('audiobook')">
+            <i class="fas fa-headphones"></i>
+            Play Audiobook
+          </button>
+          <button class="btn btn-primary" onclick="showScreen('flipbook')">
+            <i class="fas fa-book-open"></i>
+            Buku Panduan Orang Tua
+          </button>
+        </div>
+      </section>
+
+      <!-- Audiobook Player -->
+      <section id="audiobook" class="screen">
+        <button class="btn-back" onclick="showScreen('landing')">
+          <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+
+        <div class="player-container">
+          <div class="album-art">
+            <img src="assets/images/ka ayepsss.png" alt="Cover" />
+            <div class="playing-indicator" id="playingIndicator">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <h2>Zavi Tak Takut Lagi</h2>
+          <p class="narrator">Dibacakan oleh: Tim Zavi Grows</p>
+
+          <div class="progress-container">
+            <input
+              type="range"
+              id="progressBar"
+              class="progress-bar"
+              value="0"
+              min="0"
+              max="100"
+            />
+            <div class="time-display">
+              <span id="currentTime">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="control-btn" onclick="skip(-10)">
+              <i class="fas fa-backward"></i>
+              <span>10s</span>
+            </button>
+            <button
+              class="control-btn play-btn"
+              id="playBtn"
+              onclick="togglePlay()"
+            >
+              <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn" onclick="skip(10)">
+              <i class="fas fa-forward"></i>
+              <span>10s</span>
+            </button>
+          </div>
+
+          <div class="speed-control">
+            <label>Kecepatan:</label>
+            <select id="speedSelect" onchange="changeSpeed()">
+              <option value="0.5">0.5x</option>
+              <option value="0.75">0.75x</option>
+              <option value="1" selected>1x</option>
+              <option value="1.25">1.25x</option>
+              <option value="1.5">1.5x</option>
+            </select>
+          </div>
+        </div>
+
+        <audio id="audioPlayer" src="assets/audio/audiobook.mp3"></audio>
+        <audio id="flipSound" src="assets/audio/page-flip.mp3" preload="auto"></audio>
+      </section>
+
+      <!-- Flipbook -->
+      <section id="flipbook" class="screen">
+        <button class="btn-back" onclick="showScreen('landing')">
+          <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+
+        <h2>Book Chat Plan</h2>
+
+        <div class="flipbook-container">
+          <div class="book" id="book">
+            <div class="page" data-page="1">
+              <img src="assets/images/guide/page1.png" alt="Halaman 1" />
+            </div>
+            <div class="page" data-page="2">
+              <img src="assets/images/guide/page2.png" alt="Halaman 2" />
+            </div>
+            <div class="page" data-page="3">
+              <img src="assets/images/guide/page3.png" alt="Halaman 3" />
+            </div>
+             <div class="page" data-page="4">
+              <img src="assets/images/guide/page4.png" alt="Halaman 4" />
+            </div>
+            <div class="page" data-page="5">
+              <img src="assets/images/guide/page5.png" alt="Halaman 5" />
+            </div>
+            <div class="page" data-page="6">
+              <img src="assets/images/guide/page6.png" alt="Halaman 6" />
+            </div>
+            <div class="page" data-page="7">
+              <img src="assets/images/guide/page7.png" alt="Halaman 7" />
+            </div>
+            <div class="page" data-page="8">
+              <img src="assets/images/guide/page8.png" alt="Halaman 8" />
+            </div>
+            <div class="page" data-page="9">
+              <img src="assets/images/guide/page9.png" alt="Halaman 9" />
+            </div>
+            <div class="page" data-page="10">
+              <img src="assets/images/guide/page10.png" alt="Halaman 10" />
+            </div>
+            <div class="page" data-page="11">
+              <img src="assets/images/guide/page11.png" alt="Halaman 11" />
+            </div>
+            <div class="page" data-page="12">
+              <img src="assets/images/guide/page12.png" alt="Halaman 12" />
+            </div>
+
+          </div>
+
+          <div class="flipbook-controls">
+            <button class="nav-btn" id="prevBtn" onclick="prevPage()">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <span class="page-indicator">
+              Halaman <span id="currentPage">1</span> dari
+              <span id="totalPages">9</span>
+            </span>
+            <button class="nav-btn" id="nextBtn" onclick="nextPage()">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+  
+
+
+        <section id="activity" class="screen">
+          <div class="activity-grid">
+
+            
+
+              <!-- CARD 1 -->
+              <div class="activity-card">
+
+                  <img src="assets/images/coloring introduce bersama yg bener.png"
+                      alt="Mewarnai">
+
+                  <div class="activity-content">
+
+                      <h2>Mewarnai Zavi</h2>
+
+                      <p class="card-text">
+                          Yuk mewarnai karakter Zavi di rumah bersama Ayah dan Bunda.
+                      </p>
+
+                      <button class="activity-btn" onclick="openPdfModal('assets/pdf/mewarnai-zavi.pdf', 'Mewarnai Zavi')">
+                          <i class="fas fa-download"></i> Download PDF
+                      </button>
+
+                  </div>
+
+              </div>
+                  
+              <!-- CARD 2 -->
+              <div class="activity-card">
+
+                  <img src="assets/images/coloring introduce bersama yg bener.png"
+                      alt="Puzzle">
+
+                  <div class="activity-content">
+
+                      <h2>Puzzle Perasaan</h2>
+
+                      <button class="activity-btn" onclick="openPdfModal('assets/pdf/puzzle-perasaan.pdf', 'Puzzle Perasaan')">
+                          <i class="fas fa-download"></i> Main Sekarang
+                      </button>
+
+                  </div>
+
+              </div>
+              
+              <!-- CARD 3 -->
+              <div class="activity-card">
+
+                  <img src="assets/images/coloring introduce bersama yg bener.png"
+                      alt="Sticker">
+
+                  <div class="activity-content">
+
+                      <h2>Menebalkan Garis</h2>
+
+                      <p>
+                          mari menebalkan garis di halaman berikut ini.
+                      </p>
+
+                      <button class="activity-btn" onclick="openPdfModal('assets/pdf/menebalkan-garis-zavi.pdf', 'Menebalkan Garis')">
+                          <i class="fas fa-download"></i> Lihat Aktivitas
+                      </button>
+
+                  </div>
+
+              </div>
+              
+              <!-- CARD 4 -->
+              <div class="activity-card">
+
+                  <img src="assets/images/coloring introduce bersama yg bener.png"
+                      alt="Sticker">
+
+                  <div class="activity-content">
+
+                      <h2>Latihan Menulis</h2>
+
+                      <p>
+                          Latih keterampilan menulismu dengan aktivitas yang menyenangkan.
+                      </p>
+
+                      <button class="activity-btn" onclick="openPdfModal('assets/pdf/menulis.pdf', 'Latihan Menulis')">
+                          <i class="fas fa-download"></i> Lihat Aktivitas
+                      </button>
+
+                  </div>
+
+              </div>
+            
+          </div>
+        </section>
+      </div>
+
+    <!-- PDF MODAL PREVIEW -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">PDF Preview</h2>
+                <button class="modal-close" onclick="closePdfModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <iframe id="pdfIframe" src="" class="pdf-preview"></iframe>
+            </div>
+
+            
+            <div class="modal-footer">
+                <button class="btn-modal-secondary" onclick="closePdfModal()">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+                <a id="downloadLink" href="" download class="btn-modal-primary">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
