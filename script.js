@@ -119,6 +119,13 @@ let currentPage = 1;
 
 document.getElementById("totalPages").textContent = totalPages;
 
+pages.forEach((page) => {
+  const image = page.querySelector("img");
+  if (!image) return;
+
+  image.addEventListener("error", () => markMissingPage(page));
+});
+
 let isFlipping = false;
 const flipSound = document.getElementById("flipSound");
 
@@ -143,13 +150,30 @@ function updateFlipbook() {
     if (pageNum === rightPage) {
       page.classList.add("active", "right");
     }
+    if (page.classList.contains("active")) {
+      ensurePageImage(page);
+    }
   });
 
   const pageLabel = rightPage ? `${leftPage}-${rightPage}` : `${leftPage}`;
   document.getElementById("currentPage").textContent = pageLabel;
   document.getElementById("prevBtn").disabled = currentPage <= 1 || isFlipping;
   document.getElementById("nextBtn").disabled =
-    currentPage >= totalPages || isFlipping;
+    (pagesPerView === 2 ? currentPage + 1 >= totalPages : currentPage >= totalPages) || isFlipping;
+}
+
+function markMissingPage(page) {
+  page.classList.add("missing-page");
+  page.textContent = `Halaman ${page.dataset.page} belum tersedia.`;
+}
+
+function ensurePageImage(page) {
+  const image = page.querySelector("img");
+  if (!image) return;
+
+  if (image.complete && image.naturalWidth === 0) {
+    markMissingPage(page);
+  }
 }
 
 function playPageFlipSound() {

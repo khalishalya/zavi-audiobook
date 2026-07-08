@@ -81,21 +81,87 @@
       <br /> -->
       <!-- Landing Page -->
       <section id="landing" class="screen active">
-        <div class="book-cover">
-          <img src="assets/images/ka ayepsss.png" alt="Cover Buku" />
-        </div>
-        <h1>Zavi Tak Takut Lagi</h1>
-        <p class="subtitle">Cerita interaktif untuk si kecil</p>
+        <div class="landing-container">
+          <div class="landing-left">
+            <div class="book-cover-wrapper">
+              <div class="book-cover-backdrop"></div>
+              <div class="book-cover">
+                <img src="assets/images/ka ayepsss.png" alt="Cover Buku" />
+              </div>
+            </div>
+            <h1>Zavi Tak Takut Lagi</h1>
+            <p class="subtitle">Cerita interaktif untuk si kecil</p>
 
-        <div class="menu-buttons">
-          <button class="btn btn-primary" onclick="showScreen('audiobook')">
-            <i class="fas fa-headphones"></i>
-            Play Audiobook
-          </button>
-          <button class="btn btn-primary" onclick="showScreen('flipbook')">
-            <i class="fas fa-book-open"></i>
-            Buku Panduan Orang Tua
-          </button>
+            <div class="menu-buttons">
+              <button class="btn btn-primary" onclick="showScreen('audiobook')">
+                <i class="fas fa-headphones"></i>
+                Play Audiobook
+              </button>
+              <button class="btn btn-primary" onclick="showScreen('flipbook')">
+                <i class="fas fa-book-open"></i>
+                Buku Panduan Orang Tua
+              </button>
+            </div>
+          </div>
+          
+          <div class="landing-right">
+            <h2 class="activities-title"><i class="fas fa-star"></i> Aktivitas Seru Si Kecil <i class="fas fa-star"></i></h2>
+            <p class="activities-subtitle">Download & print aktivitas seru ini untuk dimainkan bersama di rumah!</p>
+            
+            <div class="activities-grid-landing">
+              <!-- Card 1: Mewarnai -->
+              <div class="activity-card-new card-mewarnai">
+                <div class="card-badge">PDF</div>
+                <div class="activity-icon-container">
+                  <i class="fas fa-palette"></i>
+                </div>
+                <h3>Mewarnai Zavi</h3>
+                <p>Mewarnai karakter Zavi yang lucu dan menggemaskan.</p>
+                <button class="download-card-btn" onclick="openPdfModal('assets/pdf/mewarnai-zavi.pdf', 'Mewarnai Zavi')">
+                  <i class="fas fa-download"></i> Download PDF
+                </button>
+              </div>
+
+              <!-- Card 2: Puzzle -->
+              <div class="activity-card-new card-puzzle">
+                <div class="card-badge">PDF</div>
+                <div class="activity-icon-container">
+                  <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>Puzzle Perasaan</h3>
+                <p>Belajar mengenal emosi dengan menyusun puzzle perasaan.</p>
+                <button class="download-card-btn" onclick="openPdfModal('assets/pdf/puzzel-zavi.pdf', 'Puzzle Perasaan Zavi')">
+                  <i class="fas fa-download"></i> Download PDF
+                </button>
+              </div>
+
+              <!-- Card 3: Menebalkan -->
+              <div class="activity-card-new card-menebalkan">
+                <div class="card-badge">PDF</div>
+                <div class="activity-icon-container">
+                  <i class="fas fa-pencil-alt"></i>
+                </div>
+                <h3>Menebalkan Garis</h3>
+                <p>Melatih motorik halus dengan melatih berbagai pola garis.</p>
+                <button class="download-card-btn" onclick="openPdfModal('assets/pdf/menebalkan-garis-zavi.pdf', 'Menebalkan Garis Zavi')">
+                  <i class="fas fa-download"></i> Download PDF
+                </button>
+              </div>
+
+              <!-- Card 4: Menulis -->
+              <div class="activity-card-new card-menulis">
+                <div class="card-badge">PDF</div>
+                <div class="activity-icon-container">
+                  <i class="fas fa-font"></i>
+                </div>
+                <h3>Latihan Menulis</h3>
+                <p>Latihan menulis kata dan melengkapi huruf sederhana.</p>
+                <button class="download-card-btn" onclick="openPdfModal('assets/pdf/menulis-zavi.pdf', 'Latihan Menulis Zavi')">
+                  <i class="fas fa-download"></i> Download PDF
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -171,47 +237,52 @@
           <i class="fas fa-arrow-left"></i> Kembali
         </button>
 
-        <h2>Book Chat Plan</h2>
+        <div class="flipbook-header">
+          <span class="parent-kicker">PANDUAN UNTUK AYAH & BUNDA</span>
+          <h2>Book Chat Plan</h2>
+          <p>Buka halaman seperti buku, lalu gunakan pertanyaan di dalamnya untuk menemani anak ngobrol setelah membaca cerita Zavi.</p>
+        </div>
 
         <div class="flipbook-container">
-          <div class="book" id="book">
-            <div class="page" data-page="1">
-              <img src="assets/images/guide/page1.png" alt="Halaman 1" />
+          <div class="book-stage">
+            <div class="book" id="book">
+              <div class="page" data-page="1">
+                <img src="assets/images/guide/page1.png" alt="Halaman 1" />
+              </div>
+              <div class="page" data-page="2">
+                <img src="assets/images/guide/page2.png" alt="Halaman 2" />
+              </div>
+              <div class="page" data-page="3">
+                <img src="assets/images/guide/page3.png" alt="Halaman 3" />
+              </div>
+              <div class="page" data-page="4">
+                <img src="assets/images/guide/page4.png" alt="Halaman 4" />
+              </div>
+              <div class="page" data-page="5">
+                <img src="assets/images/guide/page5.png" alt="Halaman 5" />
+              </div>
+              <div class="page" data-page="6">
+                <img src="assets/images/guide/page6.png" alt="Halaman 6" />
+              </div>
+              <div class="page" data-page="7">
+                <img src="assets/images/guide/page7.png" alt="Halaman 7" />
+              </div>
+              <div class="page" data-page="8">
+                <img src="assets/images/guide/page8.png" alt="Halaman 8" />
+              </div>
+              <div class="page" data-page="9">
+                <img src="assets/images/guide/page9.png" alt="Halaman 9" />
+              </div>
+              <div class="page" data-page="10">
+                <img src="assets/images/guide/page10.png" alt="Halaman 10" />
+              </div>
+              <div class="page" data-page="11">
+                <img src="assets/images/guide/page11.png" alt="Halaman 11" />
+              </div>
+              <div class="page" data-page="12">
+                <img src="assets/images/guide/page12.png" alt="Halaman 12" />
+              </div>
             </div>
-            <div class="page" data-page="2">
-              <img src="assets/images/guide/page2.png" alt="Halaman 2" />
-            </div>
-            <div class="page" data-page="3">
-              <img src="assets/images/guide/page3.png" alt="Halaman 3" />
-            </div>
-             <div class="page" data-page="4">
-              <img src="assets/images/guide/page4.png" alt="Halaman 4" />
-            </div>
-            <div class="page" data-page="5">
-              <img src="assets/images/guide/page5.png" alt="Halaman 5" />
-            </div>
-            <div class="page" data-page="6">
-              <img src="assets/images/guide/page6.png" alt="Halaman 6" />
-            </div>
-            <div class="page" data-page="7">
-              <img src="assets/images/guide/page7.png" alt="Halaman 7" />
-            </div>
-            <div class="page" data-page="8">
-              <img src="assets/images/guide/page8.png" alt="Halaman 8" />
-            </div>
-            <div class="page" data-page="9">
-              <img src="assets/images/guide/page9.png" alt="Halaman 9" />
-            </div>
-            <div class="page" data-page="10">
-              <img src="assets/images/guide/page10.png" alt="Halaman 10" />
-            </div>
-            <div class="page" data-page="11">
-              <img src="assets/images/guide/page11.png" alt="Halaman 11" />
-            </div>
-            <div class="page" data-page="12">
-              <img src="assets/images/guide/page12.png" alt="Halaman 12" />
-            </div>
-
           </div>
 
           <div class="flipbook-controls">
@@ -219,8 +290,7 @@
               <i class="fas fa-chevron-left"></i>
             </button>
             <span class="page-indicator">
-              Halaman <span id="currentPage">1</span> dari
-              <span id="totalPages">9</span>
+              Halaman <span id="currentPage">1</span> dari <span id="totalPages">12</span>
             </span>
             <button class="nav-btn" id="nextBtn" onclick="nextPage()">
               <i class="fas fa-chevron-right"></i>
