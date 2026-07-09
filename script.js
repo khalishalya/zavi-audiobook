@@ -43,6 +43,7 @@ audio.addEventListener("play", () => {
   updatePlayButton(true);
 });
 
+
 audio.addEventListener("pause", () => {
   isPlaying = false;
   updatePlayButton(false);
@@ -80,7 +81,7 @@ audio.addEventListener("timeupdate", () => {
 
   if (!isNaN(audio.duration) && audio.duration > 0) {
     const percent = (audio.currentTime / audio.duration) * 100;
-    progressBar.style.background = `linear-gradient(to right, #667eea ${percent}%, #e0e0e0 ${percent}%)`;
+    progressBar.style.background = `linear-gradient(to right, var(--color-brand) ${percent}%, #cbd5e1 ${percent}%)`;
   }
 });
 
